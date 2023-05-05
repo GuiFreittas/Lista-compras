@@ -1,43 +1,23 @@
-lista_de_compras = []
+class Time:
+    def __init__(self, nome, jogadores):
+        self.nome = nome
+        self.jogadores = jogadores
 
-while True:
-    print("O que você deseja fazer?")
-    print("1 - Inserir item na lista")
-    print("2 - Apagar item da lista")
-    print("3 - Listar itens da lista")
-    print("4 - Sair do programa")
+    def adiciona_jogador(self, nome, camisa):
+        self.jogadores.append([nome, camisa])
 
-    opcao = input("> ")
+    def imprime_jogadores(self):
+        print(f"Jogadores do time {self.nome}:")
+        for jogador in self.jogadores:
+            print(f"{jogador[1]} - {jogador[0]}")
 
-    if opcao == "1":
-        item = input("Digite o item a ser adicionado: ")
-
-        lista_de_compras.append(item)
-
-        print(f"O item '{item}' foi adicionado à lista de compras.")
-
-    elif opcao == "2":
-        print("Qual item você deseja apagar?")
-        for i, item in enumerate(lista_de_compras):
-            print(f"{i+1} - {item}")
+meu_time = Time("SC INTERNACIONAL", [["Guilherme", 10], ["Pedro Henrique", 25], ["De Pena", 1]])
 
 
-        num_item = int(input("> "))
+meu_time.imprime_jogadores()
 
 
-        item_removido = lista_de_compras.pop(num_item-1)
+meu_time.adiciona_jogador("CR7", 7)
 
 
-        print(f"O item '{item_removido}' foi removido da lista de compras.")
-
-    elif opcao == "3":
-        print("Itens da lista de compras:")
-        for item in lista_de_compras:
-            print(item)
-
-    elif opcao == "4":
-        print("Saindo do programa.")
-        break
-
-    else:
-        print("Opção inválida. Por favor, escolha uma das opções disponíveis.")
+meu_time.imprime_jogadores()
