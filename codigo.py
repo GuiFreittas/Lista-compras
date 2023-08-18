@@ -1,23 +1,13 @@
-class Time:
-    def __init__(self, nome, jogadores):
+class SistemaOperacional:
+    def __init__(self, nome, versao):
         self.nome = nome
-        self.jogadores = jogadores
+        self.versao = versao
 
-    def adiciona_jogador(self, nome, camisa):
-        self.jogadores.append([nome, camisa])
+class Computador:
+    def __init__(self, sistema):
+        self.sistema = sistema
 
-    def imprime_jogadores(self):
-        print(f"Jogadores do time {self.nome}:")
-        for jogador in self.jogadores:
-            print(f"{jogador[1]} - {jogador[0]}")
+sistema_windows = SistemaOperacional(nome="Windows", versao="10")
+meu_computador = Computador(sistema=sistema_windows)
 
-meu_time = Time("SC INTERNACIONAL", [["Guilherme", 10], ["Pedro Henrique", 25], ["De Pena", 1]])
-
-
-meu_time.imprime_jogadores()
-
-
-meu_time.adiciona_jogador("CR7", 7)
-
-
-meu_time.imprime_jogadores()
+print(f"Meu computador está rodando {meu_computador.sistema.nome} {meu_computador.sistema.versao}")
